@@ -117,7 +117,4 @@ INNER JOIN (
 ON w.PlatformId = latest.PlatformId
 AND w.UpdatedAt = latest.MaxUpdated
 ORDER BY p.Id;
-
----
-
 ---
