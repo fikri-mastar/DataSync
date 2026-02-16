@@ -97,7 +97,7 @@ If the application completes without crashing → requirement passed.
 # Part 2 :-
 the SQL Query that would return last updated well for each platform is:-
 
----sql
+```sql
 SELECT
     p.UniqueName AS PlatformName,
     w.Id,
@@ -117,4 +117,5 @@ INNER JOIN (
 ON w.PlatformId = latest.PlatformId
 AND w.UpdatedAt = latest.MaxUpdated
 ORDER BY p.Id;
+
 ---
