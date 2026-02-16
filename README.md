@@ -112,7 +112,6 @@ INNER JOIN Platforms p ON w.PlatformId = p.Id
 INNER JOIN (
     SELECT PlatformId, MAX(UpdatedAt) AS MaxUpdated
     FROM Wells
-
     GROUP BY PlatformId
 ) latest
 ON w.PlatformId = latest.PlatformId
