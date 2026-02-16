@@ -35,10 +35,10 @@ It fetches Platform and Well data using a login token, then inserts or updates r
 ---
 
 ## 2️⃣ Clone & Open Project
-bash
+```bash
 git clone https://github.com/yourusername/DataSync.git
 cd DataSync
-
+```
 ---
 ## 3️⃣ Update API Credentials
 
@@ -117,5 +117,5 @@ INNER JOIN (
 ON w.PlatformId = latest.PlatformId
 AND w.UpdatedAt = latest.MaxUpdated
 ORDER BY p.Id;
-
+```
 ---
