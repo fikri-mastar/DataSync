@@ -11,7 +11,7 @@ Approximately 8 hours were spent completing this assessment, in order to:
 - Handling dynamic API responses and testing dummy data
 - Handling errors while building the code
 
-Part 1 :-
+# Part 1 :-
 # DataSync (.NET Core Application) - Complete Setup & Usage
 
 ## Project Overview
@@ -35,12 +35,14 @@ It fetches Platform and Well data using a login token, then inserts or updates r
 ---
 
 ## 2️⃣ Clone & Open Project
-```bash
+bash
 git clone https://github.com/yourusername/DataSync.git
 cd DataSync
 
-
+---
 ## 3️⃣ Update API Credentials
+
+---
 
 ## 4️⃣ Create Database via EF Core
 
@@ -49,9 +51,9 @@ Run these commands to apply migrations and create your LocalDB database:
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 
-
 Note: If you add or change models, run a new migration before updating the database.
 
+---
 ## 5️⃣ Run the Application
 dotnet run
 
@@ -59,6 +61,7 @@ By default, Swagger UI will be available at:
 
 http://localhost:5099/swagger/index.html
 
+----
 ## 6️⃣ Test Sync Endpoint
 
 Open Swagger UI.
@@ -69,6 +72,7 @@ Successful response:
 
 Sync completed successfully.
 
+---
 ## 7️⃣ Switch to Dummy Endpoint (Optional)
 
 To verify handling of missing or extra fields:
@@ -89,7 +93,8 @@ Run POST /api/Sync again.
 
 If the application completes without crashing → requirement passed.
 
-Part 2 :-
+----
+# Part 2 :-
 the SQL Query that would return last updated well for each platform is:-
 
 SELECT
@@ -106,8 +111,11 @@ INNER JOIN Platforms p ON w.PlatformId = p.Id
 INNER JOIN (
     SELECT PlatformId, MAX(UpdatedAt) AS MaxUpdated
     FROM Wells
+
     GROUP BY PlatformId
 ) latest
 ON w.PlatformId = latest.PlatformId
 AND w.UpdatedAt = latest.MaxUpdated
 ORDER BY p.Id;
+
+---
